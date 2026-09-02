@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { App as CapApp } from '@capacitor/app';
+import { AuthProvider } from './context/AuthContext';
 import { StudyProvider } from './context/StudyContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
@@ -42,7 +43,6 @@ export default function App() {
               return 'home';
             }
             if (prevView === 'home') {
-              // WHEN CURRENT SECTION = Home: Android Back -> DO NOTHING. Stay on Home.
               return 'home';
             }
             return 'home';
@@ -82,48 +82,50 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <StudyProvider>
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans antialiased transition-colors">
-          <Header currentView={currentView} onNavigate={handleNavigate} />
+      <AuthProvider>
+        <StudyProvider>
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans antialiased transition-colors">
+            <Header currentView={currentView} onNavigate={handleNavigate} />
 
-          <main className="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 pt-4 md:pt-8 pb-24 md:pb-8">
-            {currentView === 'home' && (
-              <Home
-                onNavigate={handleNavigate}
-                onSelectSubject={handleSelectSubject}
-                onSelectChapter={handleSelectChapter}
-              />
-            )}
+            <main className="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 pt-4 md:pt-8 pb-24 md:pb-8">
+              {currentView === 'home' && (
+                <Home
+                  onNavigate={handleNavigate}
+                  onSelectSubject={handleSelectSubject}
+                  onSelectChapter={handleSelectChapter}
+                />
+              )}
 
-            {currentView === 'subjects' && (
-              <Subjects onSelectSubject={handleSelectSubject} />
-            )}
+              {currentView === 'subjects' && (
+                <Subjects onSelectSubject={handleSelectSubject} />
+              )}
 
-            {currentView === 'subject-detail' && (
-              <SubjectDetail
-                subjectId={selectedSubjectId}
-                onBack={() => handleNavigate('subjects')}
-                onSelectChapter={handleSelectChapter}
-              />
-            )}
+              {currentView === 'subject-detail' && (
+                <SubjectDetail
+                  subjectId={selectedSubjectId}
+                  onBack={() => handleNavigate('subjects')}
+                  onSelectChapter={handleSelectChapter}
+                />
+              )}
 
-            {currentView === 'chapter-view' && (
-              <ChapterView
-                chapterId={selectedChapterId}
-                initialTab={initialChapterTab}
-                onBack={() => handleNavigate('subject-detail')}
-              />
-            )}
+              {currentView === 'chapter-view' && (
+                <ChapterView
+                  chapterId={selectedChapterId}
+                  initialTab={initialChapterTab}
+                  onBack={() => handleNavigate('subject-detail')}
+                />
+              )}
 
-            {currentView === 'progress' && (
-              <Progress />
-            )}
-          </main>
+              {currentView === 'progress' && (
+                <Progress />
+              )}
+            </main>
 
-          <BottomNav currentView={currentView} onNavigate={handleNavigate} />
-          <UpdateNotification />
-        </div>
-      </StudyProvider>
+            <BottomNav currentView={currentView} onNavigate={handleNavigate} />
+            <UpdateNotification />
+          </div>
+        </StudyProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
