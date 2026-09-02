@@ -93,10 +93,11 @@ export default function Header({ currentView, onNavigate }) {
           {!user ? (
             <button
               onClick={loginWithGoogle}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#142238] border border-slate-200 dark:border-[#1E2E46] text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#1A2D4A] shadow-2xs transition-all active:scale-95 cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-[#142238] border border-slate-200 dark:border-[#1E2E46] text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#1A2D4A] shadow-2xs transition-all active:scale-95 cursor-pointer shrink-0"
+              title="Sign in with Google"
             >
               <LogIn className="w-3.5 h-3.5 text-[#315E8C] dark:text-[#4FA19B]" />
-              <span className="hidden sm:inline">Sign in</span>
+              <span className="inline">Sign in with Google</span>
             </button>
           ) : (
             <div className="relative">
