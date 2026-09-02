@@ -3,7 +3,7 @@ import { DownloadCloud, X, RefreshCw } from 'lucide-react';
 import { downloadAndActivateOtaBundle } from '../utils/otaUpdater';
 
 const CURRENT_APP_VERSION = '1.0.0';
-const REMOTE_MANIFEST_URL = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/public/version.json';
+const REMOTE_MANIFEST_URL = 'https://sixthguest56226-cloud.github.io/class12-commerce-d2s/public/version.json';
 
 // Helper for strict semantic version comparison (e.g. "1.0.1" > "1.0.0")
 export function isNewerVersion(remoteStr, currentStr) {
@@ -39,7 +39,19 @@ export default function UpdateNotification() {
 
         if (res && res.ok) {
           const data = await res.json();
-          if (data.version && isNewerVersion(data.version, CURRENT_APP_VERSION)) {
+          // Get active OTA bundle version if active
+          const activeOtaRaw = localStorage.getItem('ota_active_bundle');
+          let activeVersion = CURRENT_APP_VERSION;
+          if (activeOtaRaw) {
+            try {
+              const activeOta = JSON.parse(activeOtaRaw);
+              if (activeOta && activeOta.version) {
+                activeVersion = activeOta.version;
+              }
+            } catch (e) {}
+          }
+
+          if (data.version && isNewerVersion(data.version, activeVersion)) {
             setRemoteVersion(data.version);
             setUpdateAvailable(true);
           }

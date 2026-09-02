@@ -95,7 +95,7 @@ ipcMain.handle('apply-live-update', async (event, remoteVersion) => {
     const assetsDir = path.join(liveDir, 'assets');
     fs.mkdirSync(assetsDir, { recursive: true });
 
-    const baseUrl = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/dist/';
+    const baseUrl = 'https://sixthguest56226-cloud.github.io/class12-commerce-d2s/';
 
     // 1. Fetch latest index.html
     const htmlContent = await fetchText(baseUrl + 'index.html');

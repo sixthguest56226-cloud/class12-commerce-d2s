@@ -1,6 +1,6 @@
 // OTA Bundle Downloader & Local Storage Cache for Web / Capacitor Android
 
-const BASE_URL = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/dist/';
+const BASE_URL = 'https://sixthguest56226-cloud.github.io/class12-commerce-d2s/';
 
 export async function downloadAndActivateOtaBundle(remoteVersion) {
   try {
