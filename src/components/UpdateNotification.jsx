@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadCloud, X, RefreshCw } from 'lucide-react';
+import { downloadAndActivateOtaBundle } from '../utils/otaUpdater';
 
 const CURRENT_APP_VERSION = '1.0.0';
 const REMOTE_MANIFEST_URL = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/public/version.json';
@@ -29,12 +30,10 @@ export default function UpdateNotification() {
   useEffect(() => {
     async function checkForUpdates() {
       try {
-        // First try the live HTTPS raw GitHub manifest URL (bypassing browser cache)
         let res = null;
         try {
           res = await fetch(`${REMOTE_MANIFEST_URL}?t=${Date.now()}`, { cache: 'no-store' });
         } catch (e) {
-          // Fallback to local origin version.json if network/offline
           res = await fetch(`/version.json?t=${Date.now()}`, { cache: 'no-store' });
         }
 
@@ -51,7 +50,6 @@ export default function UpdateNotification() {
     }
 
     checkForUpdates();
-    // Periodically check every 15 minutes
     const interval = setInterval(checkForUpdates, 15 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
@@ -59,19 +57,25 @@ export default function UpdateNotification() {
   const handleUpdateNow = async () => {
     setIsUpdating(true);
     try {
-      // If running inside Electron desktop app, invoke IPC live update
+      // 1. If running inside Electron desktop app, invoke IPC live update
       if (window.electronAPI && typeof window.electronAPI.applyLiveUpdate === 'function') {
-        await window.electronAPI.applyLiveUpdate(remoteVersion);
+        const res = await window.electronAPI.applyLiveUpdate(remoteVersion);
+        if (res && res.success) return;
+      }
+
+      // 2. For Android / Web: Download and store updated bundle locally
+      const otaRes = await downloadAndActivateOtaBundle(remoteVersion);
+      if (otaRes && otaRes.success) {
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          for (let registration of registrations) {
+            await registration.unregister();
+          }
+        }
+        window.location.reload(true);
         return;
       }
 
-      // Unregister any cached service workers and force clean web reload for Web/Android
-      if ('serviceWorker' in navigator) {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          await registration.unregister();
-        }
-      }
       window.location.reload(true);
     } catch (e) {
       window.location.reload(true);

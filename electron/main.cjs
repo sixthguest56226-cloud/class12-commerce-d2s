@@ -5,8 +5,12 @@ const https = require('https');
 
 let mainWindow;
 
+function getLiveDistDir() {
+  return path.join(app.getPath('userData'), 'live-updates', 'dist');
+}
+
 function getLiveDistPath() {
-  return path.join(app.getPath('userData'), 'live-updates', 'dist', 'index.html');
+  return path.join(getLiveDistDir(), 'index.html');
 }
 
 function createWindow() {
@@ -30,8 +34,8 @@ function createWindow() {
 
   if (fs.existsSync(liveDist)) {
     console.log('Loading Live Update bundle from:', liveDist);
-    mainWindow.loadFile(liveDist).catch(() => {
-      console.warn('Failed to load live update bundle, falling back to built-in dist');
+    mainWindow.loadFile(liveDist).catch((err) => {
+      console.warn('Failed to load live update bundle, falling back to built-in dist:', err);
       mainWindow.loadFile(builtInDist);
     });
   } else {
@@ -52,44 +56,71 @@ function createWindow() {
   });
 }
 
-// IPC Handler for Live Updates
+function downloadUrl(url, dest) {
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(dest);
+    https.get(url, (res) => {
+      if (res.statusCode === 200) {
+        res.pipe(file);
+        file.on('finish', () => file.close(resolve));
+      } else {
+        fs.unlink(dest, () => {});
+        reject(new Error(`Failed ${url}: status ${res.statusCode}`));
+      }
+    }).on('error', (err) => {
+      fs.unlink(dest, () => {});
+      reject(err);
+    });
+  });
+}
+
+function fetchText(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      if (res.statusCode === 200) {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => resolve(data));
+      } else {
+        reject(new Error(`Status ${res.statusCode}`));
+      }
+    }).on('error', reject);
+  });
+}
+
+// IPC Handler for Live OTA Bundle Updates
 ipcMain.handle('apply-live-update', async (event, remoteVersion) => {
   try {
-    const liveDir = path.join(app.getPath('userData'), 'live-updates', 'dist');
+    const liveDir = getLiveDistDir();
     const assetsDir = path.join(liveDir, 'assets');
     fs.mkdirSync(assetsDir, { recursive: true });
 
     const baseUrl = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/dist/';
 
-    const downloadFile = (url, dest) => {
-      return new Promise((resolve, reject) => {
-        const file = fs.createWriteStream(dest);
-        https.get(url, (res) => {
-          if (res.statusCode === 200) {
-            res.pipe(file);
-            file.on('finish', () => file.close(resolve));
-          } else {
-            fs.unlink(dest, () => {});
-            reject(new Error(`Failed to download ${url}: status ${res.statusCode}`));
-          }
-        }).on('error', (err) => {
-          fs.unlink(dest, () => {});
-          reject(err);
-        });
-      });
-    };
+    // 1. Fetch latest index.html
+    const htmlContent = await fetchText(baseUrl + 'index.html');
+    
+    // 2. Parse JS/CSS asset filenames inside index.html
+    const assetMatches = Array.from(htmlContent.matchAll(/(?:href|src)=["']\.\/assets\/([^"']+)["']/g)).map(m => m[1]);
 
-    // Download updated index.html & version.json
-    await downloadFile(baseUrl + 'index.html', path.join(liveDir, 'index.html'));
-    await downloadFile(baseUrl + 'version.json', path.join(liveDir, 'version.json'));
+    // 3. Download all referenced asset files into live-updates/dist/assets/
+    for (const assetFile of assetMatches) {
+      const assetUrl = baseUrl + 'assets/' + assetFile;
+      const assetDest = path.join(assetsDir, assetFile);
+      await downloadUrl(assetUrl, assetDest);
+    }
 
-    // Reload main window with updated bundle
+    // 4. Save updated index.html and version.json
+    fs.writeFileSync(path.join(liveDir, 'index.html'), htmlContent, 'utf8');
+    await downloadUrl(baseUrl + 'version.json', path.join(liveDir, 'version.json'));
+
+    // 5. Activate the new bundle in BrowserWindow
     if (mainWindow) {
-      mainWindow.loadFile(path.join(liveDir, 'index.html'));
+      await mainWindow.loadFile(path.join(liveDir, 'index.html'));
     }
     return { success: true };
   } catch (err) {
-    console.error('Live update failed:', err);
+    console.error('Electron OTA Live update failed:', err);
     if (mainWindow) {
       mainWindow.reload();
     }
