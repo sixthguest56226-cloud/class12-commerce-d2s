@@ -2,12 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { initializeOtaBundle } from './utils/otaUpdater'
+import { bootApp } from './utils/otaUpdater'
 
-initializeOtaBundle()
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// Boot the app: dynamically run OTA bundle if updated, or render built-in App
+bootApp(() => {
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+})
