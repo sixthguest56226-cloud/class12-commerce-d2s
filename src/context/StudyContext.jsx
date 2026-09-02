@@ -2,35 +2,40 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { loadInitialStorageState, saveStorageState, getTodayDateString, getYesterdayDateString } from '../utils/storage';
 import { deleteFileLocally } from '../utils/localDB';
 import { useAuth } from './AuthContext';
-import { syncUserData, uploadNoteToCloud, deleteNoteFromCloud } from '../utils/cloudSync';
+import {
+  syncUserData,
+  uploadNoteToDrive,
+  deleteNoteFromDrive,
+  renameNoteOnDrive,
+} from '../utils/cloudSync';
 
 const StudyContext = createContext();
 
 export function StudyProvider({ children }) {
   const [state, setState] = useState(() => loadInitialStorageState());
   const [isTimerRunning, setIsTimerRunning] = useState(false);
-  const { user, setSyncStatus } = useAuth();
+  const { user, accessToken, setSyncStatus } = useAuth();
 
   // Synchronize state changes to localStorage
   useEffect(() => {
     saveStorageState(state);
   }, [state]);
 
-  // Sync with Firebase Cloud when user logs in or reconnects
+  // Sync with Firestore & Google Drive when user logs in or accessToken updates
   useEffect(() => {
     if (user) {
       setSyncStatus('syncing');
       syncUserData(user, state, (newState) => {
         setState(newState);
         setSyncStatus('synced');
-      }).catch((err) => {
+      }, accessToken).catch((err) => {
         console.warn('Cloud sync error:', err);
         setSyncStatus('error');
       });
     } else {
       setSyncStatus('idle');
     }
-  }, [user]);
+  }, [user, accessToken]);
 
   // Auto-sync when internet connection returns
   useEffect(() => {
@@ -40,13 +45,13 @@ export function StudyProvider({ children }) {
         syncUserData(user, state, (newState) => {
           setState(newState);
           setSyncStatus('synced');
-        }).catch(() => setSyncStatus('error'));
+        }, accessToken).catch(() => setSyncStatus('error'));
       }
     };
 
     window.addEventListener('online', handleOnline);
     return () => window.removeEventListener('online', handleOnline);
-  }, [user, state]);
+  }, [user, state, accessToken]);
 
   // Active Timer Interval Hook
   useEffect(() => {
@@ -84,7 +89,7 @@ export function StudyProvider({ children }) {
             todayGoalCompleted: newGoalCompleted,
             currentStreak: newCurrentStreak,
             longestStreak: newLongestStreak,
-            lastStudyDate: newLastStudyDate
+            lastStudyDate: newLastStudyDate,
           };
         });
       }, 1000);
@@ -105,10 +110,10 @@ export function StudyProvider({ children }) {
         ...prev,
         completedLectures: {
           ...prev.completedLectures,
-          [chapterId]: isCompleted
-        }
+          [chapterId]: isCompleted,
+        },
       };
-      if (user) syncUserData(user, newState);
+      if (user) syncUserData(user, newState, null, accessToken);
       return newState;
     });
   };
@@ -121,11 +126,11 @@ export function StudyProvider({ children }) {
           ...prev.testScores,
           [chapterId]: {
             ...testResult,
-            date: new Date().toLocaleDateString()
-          }
-        }
+            date: new Date().toLocaleDateString(),
+          },
+        },
       };
-      if (user) syncUserData(user, newState);
+      if (user) syncUserData(user, newState, null, accessToken);
       return newState;
     });
   };
@@ -137,12 +142,18 @@ export function StudyProvider({ children }) {
         ...prev,
         userNotes: {
           ...prev.userNotes,
-          [chapterId]: [newNoteObj, ...existingChapterNotes]
-        }
+          [chapterId]: [newNoteObj, ...existingChapterNotes],
+        },
       };
 
       if (user) {
-        uploadNoteToCloud(user.uid, newNoteObj.id, binaryPayload || newNoteObj.fileData, newNoteObj);
+        uploadNoteToDrive(
+          user.uid,
+          accessToken,
+          newNoteObj.id,
+          binaryPayload || newNoteObj.fileData,
+          newNoteObj
+        );
       }
 
       return newState;
@@ -151,19 +162,28 @@ export function StudyProvider({ children }) {
 
   const deleteUserNote = (chapterId, noteId) => {
     deleteFileLocally(noteId).catch(console.error);
-    if (user) {
-      deleteNoteFromCloud(user.uid, chapterId, noteId).catch(console.error);
-    }
 
     setState((prev) => {
       const existingChapterNotes = prev.userNotes[chapterId] || [];
+      const targetNote = existingChapterNotes.find((n) => n.id === noteId);
+
+      if (user) {
+        deleteNoteFromDrive(
+          user.uid,
+          accessToken,
+          chapterId,
+          noteId,
+          targetNote?.driveFileId
+        ).catch(console.error);
+      }
+
       const updatedNotes = existingChapterNotes.filter((n) => n.id !== noteId);
       return {
         ...prev,
         userNotes: {
           ...prev.userNotes,
-          [chapterId]: updatedNotes
-        }
+          [chapterId]: updatedNotes,
+        },
       };
     });
   };
@@ -171,11 +191,22 @@ export function StudyProvider({ children }) {
   const renameUserNote = (chapterId, noteId, newDisplayName) => {
     setState((prev) => {
       const existingChapterNotes = prev.userNotes[chapterId] || [];
-      let updatedNoteObj = null;
+      const targetNote = existingChapterNotes.find((n) => n.id === noteId);
+
+      if (user) {
+        renameNoteOnDrive(
+          user.uid,
+          accessToken,
+          chapterId,
+          noteId,
+          targetNote?.driveFileId,
+          newDisplayName
+        ).catch(console.error);
+      }
+
       const updatedNotes = existingChapterNotes.map((n) => {
         if (n.id === noteId) {
-          updatedNoteObj = { ...n, displayName: newDisplayName, updatedAt: Date.now() };
-          return updatedNoteObj;
+          return { ...n, displayName: newDisplayName, updatedAt: Date.now() };
         }
         return n;
       });
@@ -184,13 +215,9 @@ export function StudyProvider({ children }) {
         ...prev,
         userNotes: {
           ...prev.userNotes,
-          [chapterId]: updatedNotes
-        }
+          [chapterId]: updatedNotes,
+        },
       };
-
-      if (user && updatedNoteObj) {
-        syncUserData(user, newState);
-      }
 
       return newState;
     });
@@ -200,9 +227,9 @@ export function StudyProvider({ children }) {
     setState((prev) => {
       const newState = {
         ...prev,
-        lastStudiedResource: resource
+        lastStudiedResource: resource,
       };
-      if (user) syncUserData(user, newState);
+      if (user) syncUserData(user, newState, null, accessToken);
       return newState;
     });
   };
@@ -221,7 +248,7 @@ export function StudyProvider({ children }) {
         saveUserNote,
         deleteUserNote,
         renameUserNote,
-        updateLastStudiedResource
+        updateLastStudiedResource,
       }}
     >
       {children}

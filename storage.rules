@@ -1,8 +1,11 @@
+// DEPRECATED / NOT USED:
+// Firebase Cloud Storage has been replaced with Google Drive API v3 (drive.file scope)
+// to operate 100% free on Firebase Spark plan without requiring the paid Blaze plan.
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    match /users/{userId}/{allPaths=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+    match /{allPaths=**} {
+      allow read, write: if false;
     }
   }
 }
