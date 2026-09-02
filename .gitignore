@@ -1,5 +1,12 @@
 node_modules/
 dist/
+dist-electron/
+output/
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
 .env
 .env.*
 !.env.example
