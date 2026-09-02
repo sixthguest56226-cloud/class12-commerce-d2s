@@ -2,6 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { DownloadCloud, X, RefreshCw } from 'lucide-react';
 
 const CURRENT_APP_VERSION = '1.0.0';
+const REMOTE_MANIFEST_URL = 'https://raw.githubusercontent.com/sixthguest56226-cloud/class12-commerce-d2s/main/public/version.json';
+
+// Helper for strict semantic version comparison (e.g. "1.0.1" > "1.0.0")
+export function isNewerVersion(remoteStr, currentStr) {
+  if (!remoteStr || !currentStr) return false;
+  const remoteParts = remoteStr.split('.').map(n => parseInt(n, 10) || 0);
+  const currentParts = currentStr.split('.').map(n => parseInt(n, 10) || 0);
+  const maxLength = Math.max(remoteParts.length, currentParts.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    const r = remoteParts[i] || 0;
+    const c = currentParts[i] || 0;
+    if (r > c) return true;
+    if (r < c) return false;
+  }
+  return false;
+}
 
 export default function UpdateNotification() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
@@ -12,39 +29,51 @@ export default function UpdateNotification() {
   useEffect(() => {
     async function checkForUpdates() {
       try {
-        // Fetch public/version.json with timestamp query to bypass cache
-        const res = await fetch(`/version.json?t=${Date.now()}`, { cache: 'no-store' });
-        if (res.ok) {
+        // First try the live HTTPS raw GitHub manifest URL (bypassing browser cache)
+        let res = null;
+        try {
+          res = await fetch(`${REMOTE_MANIFEST_URL}?t=${Date.now()}`, { cache: 'no-store' });
+        } catch (e) {
+          // Fallback to local origin version.json if network/offline
+          res = await fetch(`/version.json?t=${Date.now()}`, { cache: 'no-store' });
+        }
+
+        if (res && res.ok) {
           const data = await res.json();
-          if (data.version && data.version !== CURRENT_APP_VERSION) {
+          if (data.version && isNewerVersion(data.version, CURRENT_APP_VERSION)) {
             setRemoteVersion(data.version);
             setUpdateAvailable(true);
           }
         }
       } catch (err) {
-        // Silent check error (e.g. offline)
+        // Silent catch for offline status or network errors
       }
     }
 
     checkForUpdates();
-    // Periodically check for updates every 15 minutes
+    // Periodically check every 15 minutes
     const interval = setInterval(checkForUpdates, 15 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
-  const handleUpdateNow = () => {
+  const handleUpdateNow = async () => {
     setIsUpdating(true);
-    // Unregister any cached service workers and force clean web reload
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
+    try {
+      // If running inside Electron desktop app, invoke IPC live update
+      if (window.electronAPI && typeof window.electronAPI.applyLiveUpdate === 'function') {
+        await window.electronAPI.applyLiveUpdate(remoteVersion);
+        return;
+      }
+
+      // Unregister any cached service workers and force clean web reload for Web/Android
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
         for (let registration of registrations) {
-          registration.unregister();
+          await registration.unregister();
         }
-        window.location.reload(true);
-      }).catch(() => {
-        window.location.reload(true);
-      });
-    } else {
+      }
+      window.location.reload(true);
+    } catch (e) {
       window.location.reload(true);
     }
   };
@@ -78,7 +107,7 @@ export default function UpdateNotification() {
       </div>
 
       <p className="text-xs text-slate-300 leading-relaxed font-medium">
-        A new web update for Class 12 Commerce is available. Your personal notes, streaks, and scores will remain completely safe.
+        A new update for Class 12 Commerce is available. Your personal notes, streaks, and scores will remain completely safe.
       </p>
 
       <div className="flex items-center gap-2 pt-1">
