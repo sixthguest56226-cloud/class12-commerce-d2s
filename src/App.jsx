@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { App as CapApp } from '@capacitor/app';
 import { StudyProvider } from './context/StudyContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
@@ -16,6 +17,50 @@ export default function App() {
   const [selectedSubjectId, setSelectedSubjectId] = useState('accountancy');
   const [selectedChapterId, setSelectedChapterId] = useState('acc-ch1');
   const [initialChapterTab, setInitialChapterTab] = useState('lecture');
+
+  useEffect(() => {
+    let backListener = null;
+
+    const setupBackListener = async () => {
+      try {
+        backListener = await CapApp.addListener('backButton', () => {
+          setCurrentView((prevView) => {
+            if (prevView === 'chapter-view') {
+              window.scrollTo(0, 0);
+              return 'subject-detail';
+            }
+            if (prevView === 'subject-detail') {
+              window.scrollTo(0, 0);
+              return 'subjects';
+            }
+            if (prevView === 'progress') {
+              window.scrollTo(0, 0);
+              return 'subjects';
+            }
+            if (prevView === 'subjects') {
+              window.scrollTo(0, 0);
+              return 'home';
+            }
+            if (prevView === 'home') {
+              // WHEN CURRENT SECTION = Home: Android Back -> DO NOTHING. Stay on Home.
+              return 'home';
+            }
+            return 'home';
+          });
+        });
+      } catch (err) {
+        // Silent catch for desktop/web environment
+      }
+    };
+
+    setupBackListener();
+
+    return () => {
+      if (backListener && typeof backListener.remove === 'function') {
+        backListener.remove();
+      }
+    };
+  }, []);
 
   const handleNavigate = (viewId) => {
     setCurrentView(viewId);

@@ -9,7 +9,7 @@ export default function BottomNav({ currentView, onNavigate }) {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#101C2D]/95 backdrop-blur-md border-t border-slate-200 dark:border-[#1E2E46] pt-1.5 pb-[calc(0.375rem+env(safe-area-inset-bottom,0px))] px-4 shadow-lg transition-colors">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#101C2D]/95 backdrop-blur-md border-t border-slate-200 dark:border-[#1E2E46] pt-1.5 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] px-4 shadow-lg transition-colors">
       <div className="max-w-md mx-auto flex items-center justify-around">
         {navItems.map((item) => {
           const Icon = item.icon;
