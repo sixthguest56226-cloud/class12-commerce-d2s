@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Class 12 Commerce</string>
+    <string name="title_activity_main">Class 12 Commerce</string>
+    <string name="package_name">com.class12.commercestudy</string>
+    <string name="custom_url_scheme">com.class12.commercestudy</string>
+</resources>

@@ -1,0 +1,18 @@
+{
+  "short_name": "C12 Commerce",
+  "name": "Class 12 Commerce Study App",
+  "description": "NCERT Class 12 Commerce Study System with Video Lectures, Notes, E-Books, and MCQ Tests.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#08111F",
+  "theme_color": "#101C2D",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,655 @@
+[
+  {
+    "id": "acc-ch1",
+    "subjectId": "accountancy",
+    "chapterNumber": 1,
+    "title": "Accounting for Partnership: Basic Concepts",
+    "description": "Basics of partnership deed, Profit & Loss Appropriation Account, partner capital accounts, and interest calculations.",
+    "estimatedMinutes": 258,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch2",
+    "subjectId": "accountancy",
+    "chapterNumber": 2,
+    "title": "Reconstitution of a Partnership Firm — Admission of a Partner",
+    "description": "New profit sharing ratio, sacrificing ratio, revaluation of assets and liabilities, and treatment of goodwill on admission.",
+    "estimatedMinutes": 190,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch3",
+    "subjectId": "accountancy",
+    "chapterNumber": 3,
+    "title": "Reconstitution of a Partnership Firm — Retirement/Death of a Partner",
+    "description": "Gaining ratio, treatment of goodwill, accumulated profits & reserves, and settlement of deceased partner's executor account.",
+    "estimatedMinutes": 179,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch4",
+    "subjectId": "accountancy",
+    "chapterNumber": 4,
+    "title": "Dissolution of Partnership Firm",
+    "description": "Realisation account, settlement of accounts, partner's loan, and final capital balance accounts upon firm dissolution.",
+    "estimatedMinutes": 151,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch5",
+    "subjectId": "accountancy",
+    "chapterNumber": 5,
+    "title": "Accounting for Share Capital",
+    "description": "Issue of shares at par/premium, oversubscription & pro-rata allotment, calls-in-arrears, forfeiture, and reissue of forfeited shares.",
+    "estimatedMinutes": 300,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch6",
+    "subjectId": "accountancy",
+    "chapterNumber": 6,
+    "title": "Issue of Debentures",
+    "description": "Types of debentures, issue of debentures for consideration other than cash, as collateral security, and writing off discount/loss.",
+    "estimatedMinutes": 145,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch7",
+    "subjectId": "accountancy",
+    "chapterNumber": 7,
+    "title": "Analysis of Financial Statements",
+    "description": "Financial statements of a company, Comparative statements, Common-size statements, and accounting ratio analysis.",
+    "estimatedMinutes": 36,
+    "hasSampleContent": false
+  },
+  {
+    "id": "acc-ch8",
+    "subjectId": "accountancy",
+    "chapterNumber": 8,
+    "title": "Cash Flow Statement",
+    "description": "Meaning, objectives, classification into Operating, Investing, and Financing activities as per Accounting Standard 3 (AS-3 revised).",
+    "estimatedMinutes": 154,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch1",
+    "subjectId": "economics",
+    "chapterNumber": 1,
+    "unitNumber": 1,
+    "part": "Part A — Introductory Macroeconomics",
+    "title": "Unit 1 — National Income and Related Aggregates",
+    "description": "Macroeconomic aggregates, circular flow of income, GDP, NDP, GNP, NNP at market price and factor cost, Real vs Nominal GDP.",
+    "estimatedMinutes": 27,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch2",
+    "subjectId": "economics",
+    "chapterNumber": 2,
+    "unitNumber": 2,
+    "part": "Part A — Introductory Macroeconomics",
+    "title": "Unit 2 — Money and Banking",
+    "description": "Money meaning and supply (M1), commercial banking credit creation, central bank (RBI) functions, repo rate, reverse repo, CRR, SLR.",
+    "estimatedMinutes": 24,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch3",
+    "subjectId": "economics",
+    "chapterNumber": 3,
+    "unitNumber": 3,
+    "part": "Part A — Introductory Macroeconomics",
+    "title": "Unit 3 — Determination of Income and Employment",
+    "description": "Aggregate demand & supply, propensity to consume/save (APC, MPC, APS, MPS), short-run equilibrium output, investment multiplier, excess & deficient demand.",
+    "estimatedMinutes": 49,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch4",
+    "subjectId": "economics",
+    "chapterNumber": 4,
+    "unitNumber": 4,
+    "part": "Part A — Introductory Macroeconomics",
+    "title": "Unit 4 — Government Budget and the Economy",
+    "description": "Government budget meaning and objectives, Revenue vs Capital receipts/expenditure, Revenue deficit, Fiscal deficit, Primary deficit.",
+    "estimatedMinutes": 41,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch5",
+    "subjectId": "economics",
+    "chapterNumber": 5,
+    "unitNumber": 5,
+    "part": "Part A — Introductory Macroeconomics",
+    "title": "Unit 5 — Balance of Payments",
+    "description": "Balance of Payments account meaning and components (Current vs Capital account), Foreign Exchange Rate (fixed, flexible, managed floating), foreign exchange market.",
+    "estimatedMinutes": 28,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch6",
+    "subjectId": "economics",
+    "chapterNumber": 6,
+    "unitNumber": 6,
+    "part": "Part B — Indian Economic Development",
+    "title": "Unit 6 — Development Experience (1947–90) and Economic Reforms since 1991",
+    "description": "State of Indian economy on the eve of independence, five-year plans goals, agriculture & industry strategies, LPG reforms (LPG policy 1991).",
+    "estimatedMinutes": 46,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch7",
+    "subjectId": "economics",
+    "chapterNumber": 7,
+    "unitNumber": 7,
+    "part": "Part B — Indian Economic Development",
+    "title": "Unit 7 — Current Challenges facing Indian Economy",
+    "description": "Human Capital Formation, Rural Development, Employment & informalisation, Sustainable Economic Development, environment & global warming.",
+    "estimatedMinutes": 66,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eco-ch8",
+    "subjectId": "economics",
+    "chapterNumber": 8,
+    "unitNumber": 8,
+    "part": "Part B — Indian Economic Development",
+    "title": "Unit 8 — Development Experience of India – A Comparison with Neighbours",
+    "description": "Comparative development experience of India, China, and Pakistan across economic growth, population, sectoral share, and human development indicators.",
+    "estimatedMinutes": 38,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch1",
+    "subjectId": "mathematics",
+    "chapterNumber": 1,
+    "title": "Relations and Functions",
+    "description": "Types of relations (reflexive, symmetric, transitive, equivalence), one-one and onto functions, and composition of functions.",
+    "estimatedMinutes": 180,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch2",
+    "subjectId": "mathematics",
+    "chapterNumber": 2,
+    "title": "Inverse Trigonometric Functions",
+    "description": "Definition, range, domain, principal value branches, and graphs of inverse trigonometric functions.",
+    "estimatedMinutes": 105,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch3",
+    "subjectId": "mathematics",
+    "chapterNumber": 3,
+    "title": "Matrices",
+    "description": "Concept, notation, order, equality, types of matrices, zero and identity matrix, matrix operations, transpose, and symmetric matrices.",
+    "estimatedMinutes": 115,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch4",
+    "subjectId": "mathematics",
+    "chapterNumber": 4,
+    "title": "Determinants",
+    "description": "Determinant of a square matrix (up to 3x3), minors, cofactors, area of a triangle, adjoint and inverse of a square matrix.",
+    "estimatedMinutes": 90,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch5",
+    "subjectId": "mathematics",
+    "chapterNumber": 5,
+    "title": "Continuity and Differentiability",
+    "description": "Continuity of functions, chain rule, derivative of implicit functions, exponential and logarithmic functions, and logarithmic differentiation.",
+    "estimatedMinutes": 210,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch6",
+    "subjectId": "mathematics",
+    "chapterNumber": 6,
+    "title": "Application of Derivatives",
+    "description": "Rate of change of quantities, increasing and decreasing functions, tangents and normals, and maxima and minima.",
+    "estimatedMinutes": 120,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch7",
+    "subjectId": "mathematics",
+    "chapterNumber": 7,
+    "title": "Integrals",
+    "description": "Integration as inverse process of differentiation, integration by substitution, partial fractions, and fundamental theorem of calculus.",
+    "estimatedMinutes": 240,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch8",
+    "subjectId": "mathematics",
+    "chapterNumber": 8,
+    "title": "Application of Integrals",
+    "description": "Applications in finding the area under simple curves, lines, circles, parabolas, and ellipses in standard form.",
+    "estimatedMinutes": 90,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch9",
+    "subjectId": "mathematics",
+    "chapterNumber": 9,
+    "title": "Differential Equations",
+    "description": "Order and degree, general and particular solutions of a differential equation, separation of variables, and linear differential equations.",
+    "estimatedMinutes": 110,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch10",
+    "subjectId": "mathematics",
+    "chapterNumber": 10,
+    "title": "Vector Algebra",
+    "description": "Vectors and scalars, direction cosines/ratios, position vector, scalar (dot) product and vector (cross) product of vectors.",
+    "estimatedMinutes": 100,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch11",
+    "subjectId": "mathematics",
+    "chapterNumber": 11,
+    "title": "Three Dimensional Geometry",
+    "description": "Direction cosines and direction ratios of a line joining two points, Cartesian and vector equation of a line, coplanar lines, and shortest distance.",
+    "estimatedMinutes": 120,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch12",
+    "subjectId": "mathematics",
+    "chapterNumber": 12,
+    "title": "Linear Programming",
+    "description": "Introduction, related terminology such as constraints, objective function, optimization, graphical method of solution for 2-variable LPP.",
+    "estimatedMinutes": 75,
+    "hasSampleContent": false
+  },
+  {
+    "id": "math-ch13",
+    "subjectId": "mathematics",
+    "chapterNumber": 13,
+    "title": "Probability",
+    "description": "Conditional probability, multiplication theorem on probability, independent events, total probability, and Bayes' theorem.",
+    "estimatedMinutes": 110,
+    "hasSampleContent": false
+  },
+  {
+    "id": "it-ch1",
+    "subjectId": "information-technology",
+    "chapterNumber": 1,
+    "title": "Database Concepts & Relational Data Model",
+    "description": "Database concepts, relational model, primary/candidate/foreign keys, entity-relationship diagrams, and normalization.",
+    "estimatedMinutes": 40,
+    "hasSampleContent": false
+  },
+  {
+    "id": "it-ch2",
+    "subjectId": "information-technology",
+    "chapterNumber": 2,
+    "title": "Structured Query Language (SQL)",
+    "description": "Data Definition Language (DDL), Data Manipulation Language (DML), SELECT queries, WHERE filters, GROUP BY, and joins.",
+    "estimatedMinutes": 45,
+    "hasSampleContent": false
+  },
+  {
+    "id": "it-ch3",
+    "subjectId": "information-technology",
+    "chapterNumber": 3,
+    "title": "Computer Networks & Web Security",
+    "description": "Network topologies (Star, Bus, Ring), LAN/WAN/MAN, TCP/IP, IP addressing, cyber security, firewalls, and encryption.",
+    "estimatedMinutes": 35,
+    "hasSampleContent": false
+  },
+  {
+    "id": "it-ch4",
+    "subjectId": "information-technology",
+    "chapterNumber": 4,
+    "title": "Web Applications & Programming Basics",
+    "description": "HTML5, CSS basics, web server deployment, client-side vs server-side scripting, and introductory Python/Java algorithms.",
+    "estimatedMinutes": 40,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch1",
+    "subjectId": "business-studies",
+    "chapterNumber": 1,
+    "title": "Nature and Significance of Management",
+    "description": "Concept, objectives, importance, levels of management, and management as Art, Science, and Profession.",
+    "estimatedMinutes": 49,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch2",
+    "subjectId": "business-studies",
+    "chapterNumber": 2,
+    "title": "Principles of Management",
+    "description": "Fayol's 14 principles of general management and Taylor's Scientific Management techniques.",
+    "estimatedMinutes": 63,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch3",
+    "subjectId": "business-studies",
+    "chapterNumber": 3,
+    "title": "Business Environment",
+    "description": "Dimensions of business environment (Economic, Social, Technological, Political, Legal) and Demonetisation.",
+    "estimatedMinutes": 30,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch4",
+    "subjectId": "business-studies",
+    "chapterNumber": 4,
+    "title": "Planning",
+    "description": "Importance, limitations, planning process, types of plans (Objectives, Strategy, Policy, Procedure, Rule, Budget).",
+    "estimatedMinutes": 40,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch5",
+    "subjectId": "business-studies",
+    "chapterNumber": 5,
+    "title": "Organising",
+    "description": "Concept, importance, organising process, organizational structure (Functional & Divisional), delegation, and decentralisation.",
+    "estimatedMinutes": 57,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch6",
+    "subjectId": "business-studies",
+    "chapterNumber": 6,
+    "title": "Staffing",
+    "description": "Concept, importance, staffing process, recruitment sources (Internal & External), selection process, and training & development.",
+    "estimatedMinutes": 51,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch7",
+    "subjectId": "business-studies",
+    "chapterNumber": 7,
+    "title": "Directing",
+    "description": "Concept, importance, elements of directing (Supervision, Motivation - Maslow's theory, Leadership styles, Communication & barriers).",
+    "estimatedMinutes": 59,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch8",
+    "subjectId": "business-studies",
+    "chapterNumber": 8,
+    "title": "Controlling",
+    "description": "Concept, importance, relationship between planning and controlling, and controlling process steps.",
+    "estimatedMinutes": 20,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch9",
+    "subjectId": "business-studies",
+    "chapterNumber": 9,
+    "title": "Financial Management",
+    "description": "Financial decisions (Investment, Financing, Dividend), financial planning, capital structure, and working capital factors.",
+    "estimatedMinutes": 53,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch10",
+    "subjectId": "business-studies",
+    "chapterNumber": 10,
+    "title": "Financial Markets",
+    "description": "Money market vs Capital market, Primary & Secondary markets, Stock Exchange, trading procedure, and SEBI objectives & functions.",
+    "estimatedMinutes": 47,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch11",
+    "subjectId": "business-studies",
+    "chapterNumber": 11,
+    "title": "Marketing Management",
+    "description": "Marketing functions, philosophies, 4 Ps (Product, Price, Place, Promotion), branding, packaging, and personal selling.",
+    "estimatedMinutes": 36,
+    "hasSampleContent": false
+  },
+  {
+    "id": "bst-ch12",
+    "subjectId": "business-studies",
+    "chapterNumber": 12,
+    "title": "Consumer Protection",
+    "description": "Importance, Consumer Protection Act 2019 rights & responsibilities, redressal machinery, and remedies available.",
+    "estimatedMinutes": 26,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch1",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 1,
+    "type": "chapter",
+    "title": "The Last Lesson",
+    "description": "Linguistic chauvinism, patriotic devotion, and impact of Franco-Prussian War on Alsace schools by Alphonse Daudet.",
+    "estimatedMinutes": 9,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch2",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 2,
+    "type": "chapter",
+    "title": "Lost Spring",
+    "description": "Stolen childhood and child labor in Seemapuri ragpickers and Firozabad glass bangle industry by Anees Jung.",
+    "estimatedMinutes": 10,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch3",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 3,
+    "type": "chapter",
+    "title": "Deep Water",
+    "description": "Overcoming hydrophobia through grit, willpower, and professional training at YMCA pool by William Douglas.",
+    "estimatedMinutes": 8,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch4",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 4,
+    "type": "chapter",
+    "title": "The Rattrap",
+    "description": "Human essential goodness, metaphor of the world as a rattrap, and moral redemption by Selma Lagerlöf.",
+    "estimatedMinutes": 8,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch5",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 5,
+    "type": "chapter",
+    "title": "Indigo",
+    "description": "Mahatma Gandhi's Champaran satyagraha movement fighting British indigo landlords' exploitation by Louis Fischer.",
+    "estimatedMinutes": 17,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch6",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 6,
+    "type": "chapter",
+    "title": "Poets and Pancakes",
+    "description": "Memoirs of Gemini Studios in Madras, film industry culture, pancake makeup, and Stephen Spender's visit by Asokamitran.",
+    "estimatedMinutes": 16,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch7",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 7,
+    "type": "chapter",
+    "title": "The Interview",
+    "description": "Journalistic interview traditions, celebrity privacy perspectives, and Umberto Eco's academic & novelistic success.",
+    "estimatedMinutes": 15,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch8",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Prose",
+    "chapterNumber": 8,
+    "type": "chapter",
+    "title": "Going Places",
+    "description": "Adolescent daydreams, hero-worship of football star Danny Casey, and conflict between fantasy and reality by A. R. Barton.",
+    "estimatedMinutes": 17,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch9",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Poetry",
+    "chapterNumber": 1,
+    "type": "poem",
+    "title": "My Mother at Sixty-Six",
+    "description": "Emotional complexity of filial bond, aging mother's pale face, and fear of separation by Kamala Das.",
+    "estimatedMinutes": 6,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch10",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Poetry",
+    "chapterNumber": 2,
+    "type": "poem",
+    "title": "Keeping Quiet",
+    "description": "Call for universal stillness, introspective silence, mutual understanding, and peace by Pablo Neruda.",
+    "estimatedMinutes": 8,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch11",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Poetry",
+    "chapterNumber": 3,
+    "type": "poem",
+    "title": "A Thing of Beauty",
+    "description": "Eternal joy of beautiful creations, spiritual solace, and Keats' romantic celebration of nature's endless fountain.",
+    "estimatedMinutes": 9,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch12",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Poetry",
+    "chapterNumber": 4,
+    "type": "poem",
+    "title": "A Roadside Stand",
+    "description": "Economic struggle of rural shed owners, apathy of city elites, and Frost's plea for rural dignity.",
+    "estimatedMinutes": 10,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch13",
+    "subjectId": "english",
+    "book": "Flamingo",
+    "category": "Poetry",
+    "chapterNumber": 5,
+    "type": "poem",
+    "title": "Aunt Jennifer’s Tigers",
+    "description": "Patriarchal oppression, marital constraints, and artistic immortality of Aunt Jennifer's proud embroidered tigers.",
+    "estimatedMinutes": 7,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch14",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 1,
+    "type": "chapter",
+    "title": "The Third Level",
+    "description": "Psychological time travel to 1894 Galesburg, Illinois, and modern war anxiety escapism by Jack Finney.",
+    "estimatedMinutes": 16,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch15",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 2,
+    "type": "chapter",
+    "title": "The Tiger King",
+    "description": "Satire on royal arrogance, Maharaja of Pratibandapuram's quest to kill 100 tigers, and irony of fate by Kalki.",
+    "estimatedMinutes": 15,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch16",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 3,
+    "type": "chapter",
+    "title": "Journey to the End of the Earth",
+    "description": "Antarctica scientific expedition, Students on Ice program, climate change, and earth's history by Tishani Doshi.",
+    "estimatedMinutes": 11,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch17",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 4,
+    "type": "chapter",
+    "title": "The Enemy",
+    "description": "Dr. Sadao Hoki's moral dilemma between medical duty/humanity and wartime patriotism by Pearl S. Buck.",
+    "estimatedMinutes": 4,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch18",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 5,
+    "type": "chapter",
+    "title": "On the Face of It",
+    "description": "Unlikely friendship between burn-scarred Derry and optimistic disabled Mr. Lamb by Susan Hill.",
+    "estimatedMinutes": 18,
+    "hasSampleContent": false
+  },
+  {
+    "id": "eng-ch19",
+    "subjectId": "english",
+    "book": "Vistas",
+    "category": "Supplementary",
+    "chapterNumber": 6,
+    "type": "chapter",
+    "title": "Memories of Childhood",
+    "description": "Autobiographical accounts of Native American cultural suppression (Zitkala-Sa) and Indian caste oppression (Bama).",
+    "estimatedMinutes": 14,
+    "hasSampleContent": false,
+    "subSections": [
+      "The Cutting of My Long Hair",
+      "We Too are Human Beings"
+    ]
+  }
+]

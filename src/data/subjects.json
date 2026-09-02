@@ -1,0 +1,56 @@
+[
+  {
+    "id": "accountancy",
+    "name": "Accountancy",
+    "code": "ACC-12",
+    "description": "Partnership accounts, company accounts, share capital, debentures, and cash flow statement analysis.",
+    "color": "amber",
+    "icon": "Calculator",
+    "totalChapters": 8
+  },
+  {
+    "id": "economics",
+    "name": "Economics",
+    "code": "ECO-12",
+    "description": "Macroeconomics (National income, money & banking) and Indian Economic Development.",
+    "color": "indigo",
+    "icon": "TrendingUp",
+    "totalChapters": 8
+  },
+  {
+    "id": "mathematics",
+    "name": "Mathematics",
+    "code": "MATH-12",
+    "description": "Relations & functions, ITFs, matrices, calculus, vectors, 3D geometry, LPP, and probability.",
+    "color": "rose",
+    "icon": "Compass",
+    "totalChapters": 13
+  },
+  {
+    "id": "information-technology",
+    "name": "Information Technology (IT)",
+    "code": "IT-12",
+    "description": "Database management systems, SQL queries, network concepts, and web applications.",
+    "color": "purple",
+    "icon": "Laptop",
+    "totalChapters": 4
+  },
+  {
+    "id": "business-studies",
+    "name": "Business Studies",
+    "code": "BST-12",
+    "description": "Principles and functions of management, financial management, markets, and marketing.",
+    "color": "emerald",
+    "icon": "Briefcase",
+    "totalChapters": 12
+  },
+  {
+    "id": "english",
+    "name": "English",
+    "code": "ENG-12",
+    "description": "Flamingo prose & poetry, Vistas supplementary literature, and comprehension skills.",
+    "color": "sky",
+    "icon": "BookOpen",
+    "totalChapters": 19
+  }
+]

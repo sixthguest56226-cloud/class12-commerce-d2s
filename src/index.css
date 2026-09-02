@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-page: #f5f7fa;
+    --surface-card: #ffffff;
+    --surface-elevated: #f8fafc;
+    --text-primary: #102033;
+    --text-secondary: #64748b;
+    --primary-blue: #315e8c;
+    --primary-blue-dark: #25496f;
+    --teal-accent: #3e7c78;
+    --border-subtle: #e2e8f0;
+  }
+
+  .dark {
+    --bg-page: #08111f;
+    --surface-card: #101c2d;
+    --surface-elevated: #142238;
+    --text-primary: #f1f5f9;
+    --text-secondary: #9aa9bc;
+    --primary-blue: #3b76b2;
+    --primary-blue-dark: #25496f;
+    --teal-accent: #4fa19b;
+    --border-subtle: #1e2e46;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    @apply font-sans antialiased selection:bg-slate-200 selection:text-slate-900 dark:selection:bg-slate-800 dark:selection:text-slate-100;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Academic Custom Utilities */
+.academic-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  @apply rounded-xl shadow-xs transition-all duration-150;
+}
+
+.academic-card-hover {
+  @apply hover:border-slate-300 dark:hover:border-slate-700/80 hover:shadow-xs active:scale-[0.99];
+}
+
+/* Section Header Micro-Detail Accent Line */
+.section-accent-line {
+  @apply inline-block w-1 h-3.5 rounded-full bg-[#315E8C] dark:bg-[#3B76B2] mr-2;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e2e46;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2c4263;
+}
