@@ -62,7 +62,8 @@ export const chapterContents = {
             "Ratio of loans"
           ],
           correctIndex: 1,
-          explanation: "In the absence of an agreement, partners share profits and losses equally."
+          explanation: "In the absence of an agreement, partners share profits and losses equally.",
+          difficulty: "easy"
         },
         {
           id: 2,
@@ -74,7 +75,8 @@ export const chapterContents = {
             "Not allowed"
           ],
           correctIndex: 3,
-          explanation: "Interest on capital is allowed only when there is an agreement providing for it."
+          explanation: "Interest on capital is allowed only when there is an agreement providing for it.",
+          difficulty: "easy"
         },
         {
           id: 3,
@@ -86,7 +88,8 @@ export const chapterContents = {
             "Not charged"
           ],
           correctIndex: 3,
-          explanation: "In the absence of an agreement, no interest is charged on drawings."
+          explanation: "In the absence of an agreement, no interest is charged on drawings.",
+          difficulty: "easy"
         },
         {
           id: 4,
@@ -98,7 +101,8 @@ export const chapterContents = {
             "10% p.a."
           ],
           correctIndex: 1,
-          explanation: "A partner is entitled to interest at 6% per annum on a loan advanced to the firm when there is no agreement."
+          explanation: "A partner is entitled to interest at 6% per annum on a loan advanced to the firm when there is no agreement.",
+          difficulty: "easy"
         },
         {
           id: 5,
@@ -110,7 +114,8 @@ export const chapterContents = {
             "A liability unrelated to profit"
           ],
           correctIndex: 1,
-          explanation: "Partner's salary is an appropriation of profit and is shown in the Profit and Loss Appropriation Account."
+          explanation: "Partner's salary is an appropriation of profit and is shown in the Profit and Loss Appropriation Account.",
+          difficulty: "easy"
         },
         {
           id: 6,
@@ -122,7 +127,8 @@ export const chapterContents = {
             "Calculation of assets"
           ],
           correctIndex: 1,
-          explanation: "It shows how the divisible profit is appropriated among the partners."
+          explanation: "It shows how the divisible profit is appropriated among the partners.",
+          difficulty: "easy"
         },
         {
           id: 7,
@@ -134,7 +140,8 @@ export const chapterContents = {
             "₹15,000"
           ],
           correctIndex: 1,
-          explanation: "B's guaranteed minimum profit is ₹25,000, so B receives ₹25,000 and A bears the ₹5,000 deficiency."
+          explanation: "B's guaranteed minimum profit is ₹25,000, so B receives ₹25,000 and A bears the ₹5,000 deficiency.",
+          difficulty: "medium"
         },
         {
           id: 8,
@@ -146,7 +153,8 @@ export const chapterContents = {
             "Profit and Loss Account"
           ],
           correctIndex: 1,
-          explanation: "Under the fixed capital method, drawings and other adjustments are recorded in the partner's Current Account."
+          explanation: "Under the fixed capital method, drawings and other adjustments are recorded in the partner's Current Account.",
+          difficulty: "easy"
         },
         {
           id: 9,
@@ -158,7 +166,8 @@ export const chapterContents = {
             "Suspense Account"
           ],
           correctIndex: 1,
-          explanation: "Under the fluctuating capital method, all adjustments are made directly in the Capital Account."
+          explanation: "Under the fluctuating capital method, all adjustments are made directly in the Capital Account.",
+          difficulty: "easy"
         },
         {
           id: 10,
@@ -170,7 +179,8 @@ export const chapterContents = {
             "Drawings only"
           ],
           correctIndex: 2,
-          explanation: "Interest depends on the terms of the partnership agreement and the capital amount applicable for the relevant period."
+          explanation: "Interest depends on the terms of the partnership agreement and the capital amount applicable for the relevant period.",
+          difficulty: "medium"
         },
         {
           id: 11,
@@ -182,7 +192,8 @@ export const chapterContents = {
             "The partner has a larger capital contribution"
           ],
           correctIndex: 1,
-          explanation: "Remuneration such as salary or commission must be authorized by the partnership agreement."
+          explanation: "Remuneration such as salary or commission must be authorized by the partnership agreement.",
+          difficulty: "easy"
         },
         {
           id: 12,
@@ -194,7 +205,8 @@ export const chapterContents = {
             "Electricity expense"
           ],
           correctIndex: 2,
-          explanation: "Interest on partner's capital is an appropriation of profit when provided for by the agreement."
+          explanation: "Interest on partner's capital is an appropriation of profit when provided for by the agreement.",
+          difficulty: "easy"
         },
         {
           id: 13,
@@ -206,7 +218,8 @@ export const chapterContents = {
             "₹35,000"
           ],
           correctIndex: 2,
-          explanation: "A's share = ₹50,000 × 3/5 = ₹30,000."
+          explanation: "A's share = ₹50,000 × 3/5 = ₹30,000.",
+          difficulty: "medium"
         },
         {
           id: 14,
@@ -218,7 +231,8 @@ export const chapterContents = {
             "₹300"
           ],
           correctIndex: 0,
-          explanation: "For drawings made evenly throughout the year, average period is 6 months. Interest = ₹12,000 × 10% × 6/12 = ₹600."
+          explanation: "For drawings made evenly throughout the year, average period is 6 months. Interest = ₹12,000 × 10% × 6/12 = ₹600.",
+          difficulty: "medium"
         },
         {
           id: 15,
@@ -230,7 +244,8 @@ export const chapterContents = {
             "Cash Flow Statement"
           ],
           correctIndex: 2,
-          explanation: "The Profit and Loss Appropriation Account records items such as partner's salary, interest on capital, interest on drawings and distribution of residual profit."
+          explanation: "The Profit and Loss Appropriation Account records items such as partner's salary, interest on capital, interest on drawings and distribution of residual profit.",
+          difficulty: "easy"
         }
       ]
     }
